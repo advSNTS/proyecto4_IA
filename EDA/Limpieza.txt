@@ -1,0 +1,15 @@
+Limpieza
+
+-Normalización de los nombres de columnas.
+Se normalizaron las columnas, quitando espacios y guiones remplazándolos por "_". Esto se hizo para estandarizar el espaciado entre palabras y no tener que buscar símbolos poco conocidos u ocultos.
+Se quitaron los caracteres no alfanuméricos o especiales para no tener problemas con este tipo de caracteres.
+Se convirtió todo el texto a minúsculas.
+
+-Eliminación de columnas
+Se eliminaron todas las columnas con valores nulos, todas las columnas con valores iguales puesto a que si no existe variación no se va a necesitar en el algoritmo.
+
+-Conversión de tipos numéricos
+Para columnas específicas que manejaran números, estos se convirtieron a enteros (Int64) para poder darles un manejo y asegura que los cálculos posteriores sean correctos y no sean manejados como texto.
+
+-Conversión de timestamps a fechas
+Convierte los números, segundos o milisegundos, a fechas. Adicionalmente se hizo uso de la heurística para asumir segundos o milisegundos en los valores. Si la mediana del valor es muy grande (>1^12), asume milisegundos. Adicionalmente, se eligió crear nuevas columnas para demarcar la fecha de inicio y de fin de la partida respectivamente, permitiendo análisis temporales y cálculos de duración real.
